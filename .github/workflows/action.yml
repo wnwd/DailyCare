@@ -19,5 +19,5 @@ jobs:
         uses: yakumioto/serverchan-action@v1
         with:
           key: ${{ secrets.sckey }}
-          text: {env.${{env.CURRENT_DATE}}情话}
+          text: {env.${{CURRENT_DATE}}情话}
           desp: {env.${{LOVE_WORDS}}}
