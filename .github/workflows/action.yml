@@ -4,6 +4,8 @@ on:
   push:
   schedule:
     - cron: '10 01 * * *'
+  watch:
+    types: [started]
 
 jobs:
   bot:
