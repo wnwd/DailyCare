@@ -12,7 +12,7 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Get Date'
-        run: echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%Y年%m月%d日')" >> $GITHUB_ENV
+        run: echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%-m月%d日')" >> $GITHUB_ENV
       - name: 'Get Love Words'
         run: echo "LOVE_WORDS=$(curl https://api.vvhan.com/api/love)" >> $GITHUB_ENV
       - name: Sending message
