@@ -16,8 +16,8 @@ jobs:
       - name: 'Get Love Words'
         run: echo "LOVE_WORDS=$(curl https://api.vvhan.com/api/love)" >> $GITHUB_ENV
       - name: Sending message
-        uses: yakumioto/serverchan-action@v1
+        uses: yakumioto/serverchan-action@v2
         with:
           key: ${{ secrets.sckey }}
-          text: {env.${{CURRENT_DATE}}情话}
-          desp: {env.${{LOVE_WORDS}}}
+          text: {${{ env.CURRENT_DATE }}}
+          desp: {${{ env.LOVE_WORDS }}}
