@@ -12,13 +12,8 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Get Date'
-        run: echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%-m月%d日')" >> $GITHUB_ENV
+        run: echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%-m月%d')" >> $GITHUB_ENV
       - name: 'Get Love Words'
         run: echo "LOVE_WORDS=$(curl https://api.vvhan.com/api/love)" >> $GITHUB_ENV
       - name: Sending message
-        uses: yakumioto/serverchan-action@v2
-        with:
-          key: ${{ secrets.sckey }}
-          text: ${{env.LOVE_WORDS}}的情话
-          desp: ${{env.LOVE_WORDS}}
-          #openid: {选填。抄送给其他关注你测试号的 openid ，多个 openid 用 , 隔开。}
+        run: curl https://sctapi.ftqq.com/${{ secrets.sckey }}.send?title=${{env.CURRENT_DATE}}的情话&desp=${{env.LOVE_WORDS}}
