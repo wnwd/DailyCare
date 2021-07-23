@@ -14,6 +14,8 @@ jobs:
       - name: 'Get Date'
         run: echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%-m月%d')" >> $GITHUB_ENV
       - name: 'Get Love Words'
-        run: echo "LOVE_WORDS=$(curl https://api.vvhan.com/api/love)" >> $GITHUB_ENV
+        run: |
+            echo "LOVE_WORDS=$(curl https://api.vvhan.com/api/love)" >> $GITHUB_ENV
+            echo $LOVE_WORDS
       - name: Sending message
         run: curl https://sctapi.ftqq.com/${{ secrets.sckey }}.send?title=${{env.CURRENT_DATE}}的情话&desp=${{env.LOVE_WORDS}}
