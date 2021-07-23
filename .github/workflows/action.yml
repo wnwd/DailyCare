@@ -16,4 +16,4 @@ jobs:
       - name: 'Get Love Words'
         run: echo "LOVE_WORDS=$(curl https://api.vvhan.com/api/love)" >> $GITHUB_ENV;echo $LOVE_WORDS
       - name: Sending message
-        run: curl 'https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{env.CURRENT_DATE}}的情话&desp=${{env.LOVE_WORDS}}'
+        run: curl 'https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{env.CURRENT_DATE}}的情话&desp=${{env.LOVE_WORDS}}&openid=${{ secrets.OPENID }}'
