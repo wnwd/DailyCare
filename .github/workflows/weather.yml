@@ -13,8 +13,8 @@ jobs:
       - name: 'Get Date'
         run: echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%-m月%d日')" >> $GITHUB_ENV
       - name: 'Get weather info'
-        run: bash ./weather.sh
-      - name: Sending message
         run: |
+          bash ./weather.sh
           echo "WEATHER=$(cat ./result.txt)" >> $GITHUB_ENV
-          curl "https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{ env.CURRENT_DATE }}天气&desp=${{ env.WEATHER }}&openid=${{ secrets.OPENID }}"
+      - name: 'Sending message'
+        run: curl "https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{ env.CURRENT_DATE }}天气&desp=${{ env.WEATHER }}&openid=${{ secrets.OPENID }}"
