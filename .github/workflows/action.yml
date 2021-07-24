@@ -3,7 +3,7 @@ name: 'GitHub Love Words Bot'
 on:
   push:
   schedule:
-    - cron: '38 01 * * *'
+    - cron: '3/5 * * * *'
   watch:
    types: [started]
 
