@@ -1,0 +1,20 @@
+name: 'GitHub Love Words Bot'
+
+on:
+  push:
+  schedule:
+    - cron: '3/10 * * * *'
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v1
+      - name: 'Get Date'
+        run: echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%-m月%d日')" >> $GITHUB_ENV
+      - name: 'Get Love Words'
+        run: bash ./weather.sh
+      - name: Sending message
+        run: ｜
+          WEATHER=`cat result.txt`
+          curl 'https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{env.CURRENT_DATE}}天气&desp=$WEATHER&openid=${{ secrets.OPENID }}'
