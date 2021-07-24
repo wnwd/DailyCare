@@ -1,9 +1,9 @@
-name: 'GitHub weather Bot'
+name: 'GitHub Weather Bot'
 
 on:
   push:
   schedule:
-    - cron: '3/10 * * * *'
+    - cron: '30 23 * * *'
 jobs:
   bot:
     runs-on: ubuntu-latest
