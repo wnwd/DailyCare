@@ -15,4 +15,6 @@ jobs:
       - name: 'Get weather info'
         run: bash ./weather.sh
       - name: Sending message
-        run: curl "https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{ env.CURRENT_DATE }}天气&desp=$`cat ./result.txt`&openid=${{ secrets.OPENID }}"
+        run: |
+          echo "WEATHER=$(cat ./result.txt)" >> $GITHUB_ENV
+          curl "https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{ env.CURRENT_DATE }}天气&desp=${{ env.$WEATHER }}&openid=${{ secrets.OPENID }}"
