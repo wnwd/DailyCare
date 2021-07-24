@@ -1,0 +1,20 @@
+name: 'GitHub Weather Bot'
+
+on:
+  push:
+  schedule:
+    - cron: '30 23 * * 0,6' # 07:30 UTC+8 working day.
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v1
+      - name: 'Get Date'
+        run: echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%-m月%d日')" >> $GITHUB_ENV
+      - name: 'Get weather info'
+        run: |
+          bash ./weather.sh
+          echo "WEATHER=$(cat ./result.txt)" >> $GITHUB_ENV
+      - name: 'Sending message'
+        run: curl "https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{ env.CURRENT_DATE }}天气&desp=${{ env.WEATHER }}&openid=${{ secrets.OPENID }}"

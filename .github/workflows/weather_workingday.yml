@@ -3,7 +3,7 @@ name: 'GitHub Weather Bot'
 on:
   push:
   schedule:
-    - cron: '30 23 * * *'
+    - cron: '30 23 * * 1-5' # 07:30 UTC+8 working day.
 jobs:
   bot:
     runs-on: ubuntu-latest

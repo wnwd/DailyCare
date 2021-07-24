@@ -3,7 +3,7 @@ name: 'GitHub GoodNight Words Bot'
 on:
   push:
   schedule:
-    - cron: '0 14 * * *'
+    - cron: '0 14 * * *' # 22:00 UTC+8 every day
 jobs:
   bot:
     runs-on: ubuntu-latest

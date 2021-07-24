@@ -3,7 +3,7 @@ name: 'GitHub Joke Bot'
 on:
   push:
   schedule:
-    - cron: '30 3 * * *'
+    - cron: '30 3 * * *' # 11:30 UTC+8 every day
 jobs:
   bot:
     runs-on: ubuntu-latest
