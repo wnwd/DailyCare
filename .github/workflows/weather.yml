@@ -15,4 +15,4 @@ jobs:
       - name: 'Get weather info'
         run: bash ./weather.sh
       - name: Sending message
-        run: curl "https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{env.CURRENT_DATE}}天气&desp=$`cat ./result.txt`&openid=${{ secrets.OPENID }}"
+        run: curl "https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{ env.CURRENT_DATE }}天气&desp=$`cat ./result.txt`&openid=${{ secrets.OPENID }}"
