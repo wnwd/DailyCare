@@ -3,7 +3,7 @@
 CUR_CITY=上海
 
 function jsonval {
-    temp=`echo $json | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/[\,]/ /g' | sed 's/\"//g' | grep -w $1|head -1`;
+    temp=`echo $json | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/\[/ /g; s/\]/ /g; ' | sed 's/\"//g' | grep -w $1|head -1`;
     echo ${temp}|awk -F '|' '{print $2}';
 }
 
