@@ -4,9 +4,6 @@ on:
   push:
   schedule:
     - cron: '3/5 * * * *'
-  watch:
-   types: [started]
-
 jobs:
   bot:
     runs-on: ubuntu-latest
