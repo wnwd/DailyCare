@@ -1,11 +1,12 @@
 # Daily Care
 
-Send a love words to you with wechat.
+Send a love words to you with wechat every ninght.
 
-Send a Weather report to you with wechat.
+Send a Weather report to you with wechat every morning.
 
-Send a Joke to you with wechat.
+Send a Joke to you with wechat every noon.
 
 Have a good day!
 
-![IMG_4714](https://user-images.githubusercontent.com/16299874/126818568-02882959-7dcd-40d0-a74b-946e33aad528.PNG)
+![IMG_4722](https://user-images.githubusercontent.com/16299874/126859258-787be121-bbe7-477e-b10e-67cce368904a.PNG)
+
