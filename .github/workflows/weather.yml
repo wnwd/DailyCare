@@ -17,4 +17,4 @@ jobs:
       - name: Sending message
         run: |
           WEATHER=`cat result.txt`
-          curl 'https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{env.CURRENT_DATE}}天气&desp=$WEATHER&openid=${{ secrets.OPENID }}'
+          curl 'https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{env.CURRENT_DATE}}天气&desp=${WEATHER}&openid=${{ secrets.OPENID }}'
