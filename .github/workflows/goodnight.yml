@@ -21,4 +21,4 @@ jobs:
           content=`jsonval content`
           echo "NIGHT_WORDS=$content" >> $GITHUB_ENV
       - name: Sending message
-        run: curl 'https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{ env.CURRENT_DATE }}%0D%0A%0D%0A${{ env.CURRENT_TIME }}%0D%0A%0D%0A时间不早了，准备休息吧！&desp=${{ env.NIGHT_WORDS }}&openid=${{ secrets.OPENID }}'
+        run: curl 'https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{ env.CURRENT_DATE }}%20:%20{{ env.CURRENT_TIME }}%20:%20时间不早了，准备休息吧！&desp=${{ env.NIGHT_WORDS }}&openid=${{ secrets.OPENID }}'
