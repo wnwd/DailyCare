@@ -1,0 +1,18 @@
+name: 'GitHub Love Words Bot'
+
+on:
+  push:
+  schedule:
+    - cron: '3/10 * * * *'
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v1
+      - name: 'Get Date'
+        run: echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%-m月%d')" >> $GITHUB_ENV
+      - name: 'Get Love Words'
+        run: echo "XH_WORDS=$(curl https://api.vvhan.com/api/xh)" >> $GITHUB_ENV;echo $LOVE_WORDS
+      - name: Sending message
+        run: curl 'https://sctapi.ftqq.com/${{ secrets.SCKEY }}.send?title=${{env.CURRENT_DATE}}的笑话&desp=${{env.XH_WORDS}}&openid=${{ secrets.OPENID }}'
