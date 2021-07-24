@@ -21,12 +21,12 @@ tip=`jsonval tip`
 
 touch result.txt
 
-echo 城市: $city >> result.txt
-echo 天气: $type >> result.txt
-echo 最高温度: $high >> result.txt
-echo 最低温度: $low >> result.txt
-echo 风向: $fengxiang >> result.txt
-echo 风力: $fengli >> result.txt
-echo 提示: $tip >> result.txt
+printf "城市: $city\\\n" >> result.txt
+printf "天气: $type\\\n" >> result.txt
+printf "最高温度: $high\\\n" >> result.txt
+printf "最低温度: $low\\\n" >> result.txt
+printf "风向: $fengxiang\\\n" >> result.txt
+printf "风力: $fengli\\\n" >> result.txt
+printf "提示: $tip" >> result.txt
 
 cat result.txt
