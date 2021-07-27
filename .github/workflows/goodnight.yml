@@ -21,4 +21,4 @@ jobs:
           content=`jsonval content`
           echo "NIGHT_WORDS=$content" >> $GITHUB_ENV
       - name: Sending message
-        run: curl 'https://service-foq0aw19-1253137038.sh.apigw.tencentcs.com/release/weworkchan?sendkey=${{ secrets.SENDKEY }}&msg_type=text&msg=${{ env.CURRENT_DATE }}${{ env.CURRENT_TIME }}%20%20时间不早了，准备休息吧！%0D%0A%0D%0A${{ env.NIGHT_WORDS }}&to_user=${{ secrets.TO_USER }}'
+        run: curl 'https://service-foq0aw19-1253137038.sh.apigw.tencentcs.com/release/weworkchan?sendkey=${{ secrets.SENDKEY }}&msg_type=text&msg=现在时间${{ env.CURRENT_TIME }}%20%20不早了，准备休息吧！%0D%0A%0D%0A${{ env.NIGHT_WORDS }}&to_user=${{ secrets.TO_USER }}'

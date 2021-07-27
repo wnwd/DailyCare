@@ -7,10 +7,6 @@ function jsonval {
     echo ${temp}|awk -F '|' '{print $2}';
 }
 
-function nextblank {
-    echo -n "%0D%0A%0D%0A" >> result.txt
-}
-
 json_tmp=`curl https://api.vvhan.com/api/weather?city=$CUR_CITY`
 
 json=`echo $json_tmp | sed 's/高温 //g; s/低温 //g;'`
@@ -25,12 +21,12 @@ tip=`jsonval tip`
 
 touch result.txt
 
-echo -n "城市:%20%20$city" >> result.txt;nextblank
-echo -n "天气:%20%20$type" >> result.txt;nextblank
-echo -n "最高温度:%20%20$high" >> result.txt;nextblank
-echo -n "最低温度:%20%20$low" >> result.txt;nextblank
-echo -n "风向:%20%20$fengxiang" >> result.txt;nextblank
-echo -n "风力:%20%20$fengli" >> result.txt;nextblank
+echo -n "城市:%20%20$city" >> result.txt
+echo -n "天气:%20%20$type" >> result.txt
+echo -n "最高温度:%20%20$high" >> result.txt
+echo -n "最低温度:%20%20$low" >> result.txt
+echo -n "风向:%20%20$fengxiang" >> result.txt
+echo -n "风力:%20%20$fengli" >> result.txt
 echo -n "提示:%20%20$tip" >> result.txt
 
 cat result.txt
