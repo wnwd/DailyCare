@@ -10,10 +10,8 @@ jobs:
     steps:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
-      - name: 'Get Date'
-        run: |
-          echo "CURRENT_DATE=$(TZ=':Asia/Shanghai' date '+%-m月%d日')" >> $GITHUB_ENV
-          echo "CURRENT_TIME=$(TZ=':Asia/Shanghai' date '+%H:%M')" >> $GITHUB_ENV
+      - name: 'Get Time'
+        run: echo "CURRENT_TIME=$(TZ=':Asia/Shanghai' date '+%H点%M分')" >> $GITHUB_ENV
       - name: 'Get Night Words'
         run: |
           jsonval(){ temp=`echo $json | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/\[/ /g; s/\]/ /g; ' | sed 's/\"//g' | grep -w $1|head -1`; echo ${temp}|awk -F '|' '{print $2}'; }

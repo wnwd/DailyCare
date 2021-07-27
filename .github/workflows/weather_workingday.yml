@@ -17,4 +17,4 @@ jobs:
           bash ./weather.sh
           echo "WEATHER=$(cat ./result.txt)" >> $GITHUB_ENV
       - name: 'Sending message'
-        run: curl 'https://service-foq0aw19-1253137038.sh.apigw.tencentcs.com/release/weworkchan?sendkey=${{ secrets.SENDKEY }}&msg_type=text&msg=${{ env.CURRENT_DATE }}天气%0D%0A%0D%0A${{ env.WEATHER }}&to_user=${{ secrets.TO_USER }}'
+        run: curl 'https://service-foq0aw19-1253137038.sh.apigw.tencentcs.com/release/weworkchan?sendkey=${{ secrets.SENDKEY }}&msg_type=text&msg=${{ env.CURRENT_DATE }}天气状况%0D%0A%0D%0A${{ env.WEATHER }}&to_user=${{ secrets.TO_USER }}'
