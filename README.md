@@ -10,7 +10,7 @@
 
 Have a good day!
 
-Thanks to project [wecomchan](https://github.com/easychen/wecomchan),[WeCom](https://work.weixin.qq.com/) and [Tencent Cloud](https://cloud.tencent.com/).
+Thanks to project [wecomchan](https://github.com/easychen/wecomchan) , [WeCom](https://work.weixin.qq.com/) and [Tencent Cloud](https://cloud.tencent.com/).
 
 ### Wechat @ Cellphone:
 
