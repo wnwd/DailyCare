@@ -11,7 +11,7 @@ jobs:
         uses: actions/checkout@v1
       - name: 'Get Time'
         run: echo "CURRENT_TIME=$(TZ=':Asia/Shanghai' date '+%H点%M分')" >> $GITHUB_ENV
-      - name: 'Get Love Words'
+      - name: 'Get Joke Words'
         run: |
           echo "XH_WORDS=$(curl https://api.vvhan.com/api/xh | sed -n -e 'H;${x;s/\n//g;p;}')" >> $GITHUB_ENV
           echo $XH_WORDS
