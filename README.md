@@ -10,10 +10,10 @@
 
 Have a good day!
 
-Thanks to project [wecomchan](https://github.com/easychen/wecomchan) and [WeCom](https://work.weixin.qq.com/).
+Thanks to project [wecomchan](https://github.com/easychen/wecomchan),[WeCom](https://work.weixin.qq.com/) and [Tencent Cloud](https://cloud.tencent.com/).
 
 ### Wechat @ Cellphone:
 
-<img src="https://user-images.githubusercontent.com/16299874/126859258-787be121-bbe7-477e-b10e-67cce368904a.PNG" width = "30%" height = "30%" alt="use case" align=center />
+<img src="https://user-images.githubusercontent.com/16299874/126859258-787be121-bbe7-477e-b10e-67cce368904a.PNG" width = "30%" height = "30%" alt="Use case in wechat" vertical-align: text-top; />
 
 
