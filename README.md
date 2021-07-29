@@ -14,6 +14,6 @@ Thanks to project [wecomchan](https://github.com/easychen/wecomchan),[WeCom](htt
 
 ### Wechat @ Cellphone:
 
-<img src="https://user-images.githubusercontent.com/16299874/126859258-787be121-bbe7-477e-b10e-67cce368904a.PNG" width = "30%" height = "30%" alt="Use case in wechat" vertical-align: text-top; />
+<img src="https://user-images.githubusercontent.com/16299874/126859258-787be121-bbe7-477e-b10e-67cce368904a.PNG" width = "30%" height = "30%" alt= "Use case in wechat" />
 
 
