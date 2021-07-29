@@ -1,7 +1,6 @@
 name: 'GitHub Joke Bot'
 
 on:
-  push:
   schedule:
     - cron: '30 3 * * *' # 11:30 UTC+8 every day
 jobs:
@@ -13,6 +12,8 @@ jobs:
       - name: 'Get Time'
         run: echo "CURRENT_TIME=$(TZ=':Asia/Shanghai' date '+%H点%M分')" >> $GITHUB_ENV
       - name: 'Get Love Words'
-        run: echo "XH_WORDS=$(curl https://api.vvhan.com/api/xh)" >> $GITHUB_ENV;echo $LOVE_WORDS
+        run: |
+          echo "XH_WORDS=$(curl https://api.vvhan.com/api/xh | sed -n -e 'H;${x;s/\n//g;p;}')" >> $GITHUB_ENV
+          echo $XH_WORDS
       - name: Sending message
         run: curl 'https://service-foq0aw19-1253137038.sh.apigw.tencentcs.com/release/weworkchan?sendkey=${{ secrets.SENDKEY }}&msg_type=text&msg=${{ env.CURRENT_TIME }}午饭时间到咯%20%20笑话一则%0D%0A%0D%0A${{ env.XH_WORDS }}&to_user=${{ secrets.TO_USER }}'
