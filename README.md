@@ -2,7 +2,7 @@
 
 > Send you WeChat reminder with weather report to you every morning(~07:30 UTC+8).
 
-> Send you WeChat reminder with a joke to have launch every noon (~11:30 UTC+8).
+> Send you WeChat reminder with a joke to have lunch every noon (~11:30 UTC+8).
 
 > Send you WeChat reminder to drink water every afternoon (~15:30 UTC+8).
 
