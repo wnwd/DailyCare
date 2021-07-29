@@ -1,0 +1,24 @@
+name: 'GitHub Drink Water Bot'
+on:
+  schedule:
+    - cron:  '30 7 * * *'
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: PrepareJsonPackage
+        id: step_one
+        env:
+          sendkey: ${{ secrets.SENDKEY }}
+          msg_type: text
+          msg: "久 坐 提 醒\\n\\n已经坐很久了💺，站起来走动一下🚶‍♂️，喝杯水🥤，放松一下眼睛👀吧！😊"
+          to_user: ${{ secrets.TO_USER }}
+        run: |
+          echo "😊 Prepare Json Package"
+          echo 'json_data={"sendkey": "${{ env.sendkey }}","msg_type": "${{ env.msg_type}}","msg": "${{ env.msg }}","to_user": "${{ env.to_user }}"}' >> $GITHUB_ENV
+
+      - name: Sending Message
+        id: step_two
+        run: |
+          echo "🍏 Sending wechat message  ${{ job.status }}."
+          curl -H 'Content-Type: application/json' -d '${{ env.json_data }}' 'https://service-foq0aw19-1253137038.sh.apigw.tencentcs.com/release/weworkchan'
