@@ -1,0 +1,23 @@
+name: 'GitHub Joke Bot'
+
+on:
+  schedule:
+    - cron: '30 9 * * *' # 22:00 UTC+8 every day
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout codes'
+        uses: actions/checkout@v1
+      - name: 'Get Time'
+        run: echo "CURRENT_TIME=$(TZ=':Asia/Shanghai' date '+%H点%M分')" >> $GITHUB_ENV
+      - name: 'Get Joke Words'
+        run: |
+          jsonval(){ temp=`echo $json | sed 's/\\\\\//\//g' | sed 's/[{}]//g' | awk -v k="text" '{n=split($0,a,","); for (i=1; i<=n; i++) print a[i]}' | sed 's/\"\:\"/\|/g' | sed 's/\[/ /g; s/\]/ /g; ' | sed 's/\"//g' | grep -w $1|head -1`; echo ${temp}|awk -F '|' '{print $2}'; }
+          json=`curl http://api.tianapi.com/txapi/joke/index?key=${{ secrets.TIAN_API_KEY }}&num=1`
+          title=`jsonval title`
+          content=`jsonval content`
+          echo "JOKE_WORDS=$content" >> $GITHUB_ENV
+          echo "JOKE_TITLE=$title" >> $GITHUB_ENV
+      - name: Sending message
+        run: curl 'https://service-foq0aw19-1253137038.sh.apigw.tencentcs.com/release/weworkchan?sendkey=${{ secrets.SENDKEY }}&msg_type=text&msg=${{ env.JOKE_TITLE }}%0D%0A%0D%0A${{ env.JOKE_WORDS }}&to_user=${{ secrets.TO_USER }}'
