@@ -1,5 +1,9 @@
 # Daily Care
 
+This repo mian language was shell. As you know, shell is too flexiable to control.
+I wrote a python version with the same functions.
+<h2 align="center">Please move here:<a href="https://github.com/wnwd/wx-reminder">wx-reminder :triangular_flag_on_post:</a></h2>
+
 > Send you WeChat reminder with weather report to you every morning(~07:30 UTC+8).
 
 > Send you WeChat reminder with a joke to have lunch every noon (~11:30 UTC+8).
